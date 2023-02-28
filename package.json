@@ -1,0 +1,34 @@
+{
+  "name": "mock-ts",
+  "version": "1.0.0",
+  "description": "使用typescript重写mockjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/less-famous-ITer/mock-ts.git"
+  },
+  "keywords": [
+    "mock",
+    "typescript"
+  ],
+  "author": "heyq",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/less-famous-ITer/mock-ts/issues"
+  },
+  "homepage": "https://github.com/less-famous-ITer/mock-ts#readme",
+  "dependencies": {
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  },
+  "devDependencies": {
+    "clean-webpack-plugin": "^4.0.0",
+    "html-webpack-plugin": "^5.5.0",
+    "ts-loader": "^9.4.2",
+    "typescript": "^4.9.5"
+  }
+}
