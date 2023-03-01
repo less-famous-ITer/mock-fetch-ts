@@ -1,23 +1,10 @@
-import store from './store/store';
+import Mock from './index.test.2'
+import center from "./store/center";
+import fetch from "./index.test.3";
 
-// 原生fetch
-// const _fetch = store()
+Mock('123', '4567', (req, res) => {
+    console.log('123', 'func', req, res)
+})
 
-import fetch from './fetch'
-
-fetch('https://echo.apifox.com/get?q1=<q1>&q2=<q2>')
-
-// var myHeaders = new Headers();
-// myHeaders.append("User-Agent", "Apifox/1.0.0 (https://www.apifox.cn)");
-//
-// fetch("https://echo.apifox.com/get?q1=<q1>&q2=<q2>")
-//     .then(response => console.log(response))
-//
-// _fetch("https://echo.apifox.com/get?q1=<q1>&q2=<q2>", {
-//     method: 'GET',
-//     headers: myHeaders,
-//     redirect: 'follow'
-// })
-//     .then(response => response.text())
-//     .then(result => console.log(result))
-//     .catch(error => console.log('error', error));
+// center.$emit('1234567', 1, 2)
+fetch('1234567', 1, 9)
