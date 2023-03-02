@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-    mode: 'production',
+    mode: 'development',
     entry: path.resolve(__dirname, './src', 'index.ts'),
     output: {
         path: path.resolve(__dirname, './dist'),
@@ -20,6 +20,18 @@ module.exports = {
                     loader: 'ts-loader'
                 },
                 exclude: /node_modules/
+            },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: [
+                            ['@babel/preset-env', {"useBuiltIns": "entry"}]
+                        ]
+                    }
+                }
             }
         ]
     },
