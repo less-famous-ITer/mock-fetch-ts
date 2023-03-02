@@ -1,4 +1,6 @@
-// 商店接口
+import match from "../utils/match";
+
+// 事件接口
 interface Event {
     [eventID: string]: Function;
 }
@@ -36,10 +38,14 @@ class EventCenter {
         const url = req.url
 
         for(const eventID in this.events) {
-            console.log(eventID)
+
+            if(match(eventID.split('-')[0], eventURL.split('-')[0])) {
+                return this.events[eventID].apply(this, [req])
+            }
         }
 
-        return this.events[eventURL].apply(this, [req])
+        return 'NOT FOUND'
+
     }
 }
 

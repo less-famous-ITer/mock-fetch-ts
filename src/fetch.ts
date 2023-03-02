@@ -15,7 +15,7 @@ export default function fetch(url: string, config: fetchConfig) {
 
     return new Promise(resolve => {
         resolve(
-            center.$emit(url+config.method, req)
+            center.$emit(url+'-'+config.method, req)
         )
     })
 
