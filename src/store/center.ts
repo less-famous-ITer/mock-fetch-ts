@@ -8,12 +8,8 @@ interface Event {
 export interface MockRequest {
     url: string,
     method: string,
-    params?: {
-        [key: string]: string
-    },
-    body?: {
-        [key: string]: string
-    }
+    params?: object,
+    body?: object
 }
 
 export interface MockResponse {

@@ -8,10 +8,27 @@ interface fetchConfig {
 export default function fetch(url: string, config: fetchConfig) {
 
     // TODO: 将 url 和 config 解析到 req
-    const req: MockRequest = {
-        url,
-        method: config.method,
+    let req: MockRequest = {
+        url: '',
+        method: ''
     }
+    if(config.hasOwnProperty('body')){
+        req = {
+            url,
+            method: config.method,
+            body: (config.body as object)
+        }
+    } else {
+        req = {
+            url,
+            method: config.method
+        }
+    }
+
+    // const req: MockRequest = {
+    //     url,
+    //     method: config.method,
+    // }
 
     return new Promise(resolve => {
         resolve(
