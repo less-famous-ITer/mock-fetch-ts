@@ -1,6 +1,6 @@
 {
   "name": "mock-fetch-ts",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "mock-fetch-ts 是一个基于原生 fetch 的前端数据模拟器",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/less-famous-ITer/mock-ts.git"
+    "url": "git+https://github.com/less-famous-ITer/mock-fetch-ts.git"
   },
   "keywords": [
     "mock",
@@ -18,9 +18,9 @@
   "author": "heyq",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/less-famous-ITer/mock-ts/issues"
+    "url": "https://github.com/less-famous-ITer/mock-fetch-ts/issues"
   },
-  "homepage": "https://github.com/less-famous-ITer/mock-ts#readme",
+  "homepage": "https://github.com/less-famous-ITer/mock-fetch-ts#readme",
   "dependencies": {
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1"
