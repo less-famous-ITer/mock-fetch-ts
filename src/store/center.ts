@@ -37,8 +37,8 @@ class EventCenter {
 
         const url = req.url
 
+        // 遍历匹配路径
         for(const eventID in this.events) {
-
             if(match(eventID.split('-')[0], eventURL.split('-')[0])) {
                 return this.events[eventID].apply(this, [req])
             }
