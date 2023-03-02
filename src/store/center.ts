@@ -1,17 +1,20 @@
 // 商店接口
 interface Event {
-    [houseNum: string]: Function;
+    [eventID: string]: Function;
 }
 
-interface Request {
-
+export interface MockRequest {
+    url: string,
+    method: string,
+    params?: {
+        [key: string]: string
+    },
+    body?: {
+        [key: string]: string
+    }
 }
 
-interface Response {
-
-}
-
-interface Config {
+export interface MockResponse {
 
 }
 
@@ -24,21 +27,15 @@ class EventCenter {
         this.events = {}
     }
     // 绑定事件
-    $on(houseNum: string, callback: (req: Request, res: Response) => void): void {
-        this.events[houseNum] = callback
+    $on(eventID: string, callback: Function) {
+        this.events[eventID] = callback
     }
     // 触发事件
-    $emit(houseNum: string, req: Request, res: Response): void {
-        this.events[houseNum].apply(this, [req, res])
+    $emit(eventID: string, req: MockRequest) {
+        return this.events[eventID].apply(this, [req])
     }
 }
 
 let center = new EventCenter()
-
-// center.add('123', (...args: Array<any>) => {
-//     console.log('fun1', args)
-// })
-//
-// center.buy('123', 1, 2, 3)
 
 export default center
