@@ -1,8 +1,8 @@
 {
   "name": "mock-fetch-ts",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "mock-fetch-ts 是一个基于原生 fetch 的前端数据模拟器",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack --config webpack.config.js"
