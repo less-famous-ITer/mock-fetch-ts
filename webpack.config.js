@@ -7,7 +7,7 @@ module.exports = {
     entry: path.resolve(__dirname, './src', 'index.ts'),
     output: {
         path: path.resolve(__dirname, './dist'),
-        filename: 'mock.js'
+        filename: 'index.js'
     },
     resolve: {
         extensions: ['.ts', '.js']

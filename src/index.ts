@@ -27,3 +27,5 @@ Mock('https://123', 'get', (req) => {
 fetch('https://123', {
     method: 'get'
 })
+
+export { Mock, fetch }
