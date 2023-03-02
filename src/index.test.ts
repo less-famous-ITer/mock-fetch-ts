@@ -22,7 +22,7 @@ import Mock from "./mock";
 
 Mock('https://123', 'get', (req) => {
     // console.log(req)
-    return 123
+    return {num:123}
 })
 
 fetch('https://123', {

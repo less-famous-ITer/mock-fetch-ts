@@ -27,7 +27,7 @@ const mock_1 = __importDefault(require("./mock"));
 exports.Mock = mock_1.default;
 (0, mock_1.default)('https://123', 'get', (req) => {
     // console.log(req)
-    return 123;
+    return { num: 123 };
 });
 (0, fetch_1.default)('https://123', {
     method: 'get'

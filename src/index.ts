@@ -3,7 +3,7 @@ import Mock from "./mock";
 
 Mock('https://123', 'get', (req) => {
     // console.log(req)
-    return 123
+    return {}
 })
 
 Mock('https://123/:name', 'get', (req) => {

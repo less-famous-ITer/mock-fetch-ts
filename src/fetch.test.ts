@@ -2,7 +2,7 @@ import fetch from './fetch';
 import Mock from "./mock";
 
 Mock('https://123', 'get', (req) => {
-    console.log(req)
+    return {}
 })
 
 fetch('https://123', {
