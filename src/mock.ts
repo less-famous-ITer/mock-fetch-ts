@@ -5,6 +5,6 @@ export default function Mock(
     method: string,
     callback: (req: MockRequest) => void) {
 
-    center.$on(url+method, callback)
+    center.$on(url+'-'+method, callback)
 
 }

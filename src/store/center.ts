@@ -31,8 +31,15 @@ class EventCenter {
         this.events[eventID] = callback
     }
     // 触发事件
-    $emit(eventID: string, req: MockRequest) {
-        return this.events[eventID].apply(this, [req])
+    $emit(eventURL: string, req: MockRequest) {
+
+        const url = req.url
+
+        for(const eventID in this.events) {
+            console.log(eventID)
+        }
+
+        return this.events[eventURL].apply(this, [req])
     }
 }
 
