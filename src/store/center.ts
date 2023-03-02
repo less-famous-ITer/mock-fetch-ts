@@ -9,7 +9,7 @@ export interface MockRequest {
     url: string,
     method: string,
     params?: object,
-    body?: object
+    body?: string
 }
 
 export interface MockResponse {
