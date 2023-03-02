@@ -13,6 +13,10 @@ export default function fetch(url: string, config: fetchConfig) {
         method: config.method,
     }
 
-    center.$emit(url+config.method, req)
+    return new Promise(resolve => {
+        resolve(
+            center.$emit(url+config.method, req)
+        )
+    })
 
 }

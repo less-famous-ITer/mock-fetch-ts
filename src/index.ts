@@ -21,11 +21,14 @@ import fetch from './fetch';
 import Mock from "./mock";
 
 Mock('https://123', 'get', (req) => {
-    console.log(req)
+    // console.log(req)
+    return 123
 })
 
 fetch('https://123', {
     method: 'get'
+}).then(response => {
+    console.log(response)
 })
 
 export { Mock, fetch }
