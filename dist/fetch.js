@@ -23,10 +23,12 @@ function fetch(url, config) {
             method: config.method
         };
     }
+    // 发布事件
+    // 得到回调函数的返回值
     const data = center_1.default.$emit(url + '-' + config.method, req);
-    // const bod = new FormData()
-    // bod.append('data', data)
+    // 实例化一个blob对象
     const blob = new Blob([JSON.stringify(data)], { type: 'application/json' });
+    // 返回一个promise对象
     return new Promise(resolve => {
         resolve(new Response(blob, {
             status: 200,

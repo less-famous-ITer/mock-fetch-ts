@@ -4,27 +4,44 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const match_1 = __importDefault(require("../utils/match"));
-// 事件中心类
+/**
+ * 事件中心类
+ * events: Event 事件列表
+ * on: 订阅事件
+ * emit: 发布事件
+ */
 class EventCenter {
-    // 初始化商店列表
     constructor() {
         this.events = {};
     }
-    // 绑定事件
+    /**
+     * 订阅事件
+     * @param eventID
+     * @param callback
+     */
     $on(eventID, callback) {
         this.events[eventID] = callback;
     }
-    // 触发事件
+    /**
+     * 发布事件
+     * @param eventURL
+     * @param req
+     */
     $emit(eventURL, req) {
-        const url = req.url;
-        // 遍历匹配路径
+        // 遍历得到匹配eventURL的eventID
         for (const eventID in this.events) {
+            // 匹配成功
             if ((0, match_1.default)(eventID.split('-')[0], eventURL.split('-')[0])) {
+                // 调用eventID对应的回调函数
                 return this.events[eventID].apply(this, [req]);
             }
         }
-        return 'NOT FOUND';
+        // 未匹配成功
+        return {
+            error: 'NOT FOUND'
+        };
     }
 }
+// 实例化
 let center = new EventCenter();
 exports.default = center;

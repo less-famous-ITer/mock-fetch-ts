@@ -1,17 +1,16 @@
 /**
- * 匹配预设路径与URL
+ * 匹配pattern和url
  * @param pattern
  * @param url
  */
 export default function match(pattern: string, url: string): boolean {
 
-    // 存储预设路径
+    // 暂存pattern
     let pattern_temp = pattern
 
     // TODO: 将预设路径中的路径参数转化为.*进行正则匹配
     let params = /\/:.*/.exec(pattern_temp)
     if(params !== null) {
-        // console.log('预设路径中存在路径参数')
         // 提取预设路径参数中的URL
         pattern_temp = pattern_temp.replace(/\/:.*/, '')
         // 将预设路径中的路径参数转化为.*用于后续匹配
@@ -29,5 +28,6 @@ export default function match(pattern: string, url: string): boolean {
     if(_url[0].replace(_pattern, '').length !== 0) {
         return false
     }
+
     return true
 }

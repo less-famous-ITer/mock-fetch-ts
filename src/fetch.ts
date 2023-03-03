@@ -1,5 +1,10 @@
-import center, { MockRequest, MockResponse } from './store/center';
+import center, { MockRequest } from './store/center';
 
+/**
+ * fetch配置对象
+ * method: string 请求方法
+ * body?: string 请求体
+ */
 interface fetchConfig {
     method: string;
     body?: string;
@@ -25,12 +30,14 @@ export default function fetch(url: string, config: fetchConfig): Promise<Respons
         }
     }
 
+    // 发布事件
+    // 得到回调函数的返回值
     const data = center.$emit(url+'-'+config.method, req)
-    // const bod = new FormData()
-    // bod.append('data', data)
 
+    // 实例化一个blob对象
     const blob = new Blob([JSON.stringify(data)], {type: 'application/json'})
 
+    // 返回一个promise对象
     return new Promise(resolve => {
         resolve(
             new Response(

@@ -6,7 +6,7 @@ module.exports = {
     mode: 'development',
     entry: path.resolve(__dirname, './src', 'index.ts'),
     output: {
-        path: path.resolve(__dirname, './demo'),
+        path: path.resolve(__dirname, './test'),
         filename: 'index.js'
     },
     resolve: {
