@@ -10,6 +10,7 @@ english doc: [mock-fetch-ts](https://github.com/less-famous-ITer/mock-fetch-ts#r
 
 * Generate response data according to the data template
 * Provide data simulation for native fetch
+* Get the query and the params in Mock function
 
 ## Easy-Use
 
@@ -20,12 +21,16 @@ npm install mock-fetch-ts
 ```ts
 import { fetch, Mock } from 'mock-fetch-ts'
 
-Mock('https://www.baidu.com/12/:id', 'get', req => {
+Mock('https://www.baidu.com/12/:id/:ppp', 'get', (req, params, query) => {
 
-    console.log(req.url)
-    console.log(req.method)
-    console.log(req.cache)
-    
+    console.log(params)
+
+    console.log(query)
+
+    // console.log(req.url)
+    // console.log(req.method)
+    // console.log(req.cache)
+
     return {
         headers: {
             ACC: 'accccc'
@@ -41,13 +46,23 @@ Mock('https://www.baidu.com/12/:id', 'get', req => {
     }
 })
 
-fetch('https://www.baidu.com/12/13', {
+fetch('https://www.baidu.com/12/13/yyy', {
     method: 'get',
     cache: 'no-store',
 }).then(response => {
-    console.log(response.headers)
-    console.log(response.status)
-    console.log(response.statusText)
+    // console.log(response.headers)
+    // console.log(response.status)
+    // console.log(response.statusText)
+    return response.text()
+}).then(result => console.log(result))
+
+fetch('https://www.baidu.com/12/13/hhh?a=1&b=2', {
+    method: 'get',
+    cache: 'no-store',
+}).then(response => {
+    // console.log(response.headers)
+    // console.log(response.status)
+    // console.log(response.statusText)
     return response.text()
 }).then(result => console.log(result))
 ```
@@ -83,7 +98,7 @@ interface fetchConfig {
 function Mock(
     url: string,
     method: string,
-    callback: (req: MockRequest) => MockResponse)
+    callback: (req: MockRequest, params: object, query: object) => MockResponse)
 ```
 
 Req is a wrapper for the request body, which can be called between callback functions
