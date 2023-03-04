@@ -16,7 +16,17 @@ interface Event {
 export interface MockRequest {
     url: string,
     method: string,
-    body?: string
+    headers?: {
+        [key: string]: string
+    },
+    body?: string;
+    mode?: string;
+    credentials?: string;
+    cache?: string;
+    redirect?: string;
+    referrer?: string;
+    referrerPolicy?: string;
+    integrity?: string;
 }
 
 /**

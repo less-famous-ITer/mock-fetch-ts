@@ -7,7 +7,17 @@ import center, { MockRequest } from './store/center';
  */
 interface fetchConfig {
     method: string;
+    headers?: {
+        [key: string]: string
+    }
     body?: string;
+    mode?: string;
+    credentials?: string;
+    cache?: string;
+    redirect?: string;
+    referrer?: string;
+    referrerPolicy?: string;
+    integrity?: string;
 }
 
 export default function fetch(url: string, config: fetchConfig): Promise<Response> {
@@ -17,18 +27,26 @@ export default function fetch(url: string, config: fetchConfig): Promise<Respons
         url: '',
         method: ''
     }
-    if(config.hasOwnProperty('body')){
-        req = {
-            url,
-            method: config.method,
-            body: (config.body as string)
-        }
-    } else {
-        req = {
-            url,
-            method: config.method
-        }
+
+    // if(config.hasOwnProperty('body')){
+    //     req = {
+    //         url,
+    //         method: config.method,
+    //         body: (config.body as string)
+    //     }
+    // } else {
+    //     req = {
+    //         url,
+    //         method: config.method
+    //     }
+    // }
+
+    req = {
+        url,
+        ...config
     }
+
+    req = JSON.parse(JSON.stringify(req))
 
     // 发布事件
     // 得到回调函数的返回值

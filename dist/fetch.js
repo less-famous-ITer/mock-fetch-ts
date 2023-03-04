@@ -10,19 +10,20 @@ function fetch(url, config) {
         url: '',
         method: ''
     };
-    if (config.hasOwnProperty('body')) {
-        req = {
-            url,
-            method: config.method,
-            body: config.body
-        };
-    }
-    else {
-        req = {
-            url,
-            method: config.method
-        };
-    }
+    // if(config.hasOwnProperty('body')){
+    //     req = {
+    //         url,
+    //         method: config.method,
+    //         body: (config.body as string)
+    //     }
+    // } else {
+    //     req = {
+    //         url,
+    //         method: config.method
+    //     }
+    // }
+    req = Object.assign({ url }, config);
+    req = JSON.parse(JSON.stringify(req));
     // 发布事件
     // 得到回调函数的返回值
     const data = center_1.default.$emit(url + '-' + config.method, req);
