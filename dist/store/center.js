@@ -31,9 +31,10 @@ class EventCenter {
         // 遍历得到匹配eventURL的eventID
         for (const eventID in this.events) {
             // 匹配成功
-            if ((0, match_1.default)(eventID.split('-')[0], eventURL.split('-')[0])) {
+            const match_res = (0, match_1.default)(eventID.split('-')[0], eventURL.split('-')[0]);
+            if (match_res.bool) {
                 // 调用eventID对应的回调函数
-                return this.events[eventID].apply(this, [req]);
+                return this.events[eventID].apply(this, [req, match_res.params, match_res.query]);
             }
         }
         // 未匹配成功
