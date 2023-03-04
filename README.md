@@ -2,7 +2,9 @@
 
 overrides the native fetch to simulate the background interface
 
-official doc: [mock-fetch-ts](https://www.yuque.com/u29138508/gki7q8/ofwzfpklbd1qwnyr?singleDoc)
+chinese doc: [mock-fetch-ts](https://www.yuque.com/u29138508/gki7q8/ofwzfpklbd1qwnyr?singleDoc)
+
+english doc: [mock-fetch-ts](https://github.com/less-famous-ITer/mock-fetch-ts#readme)
 
 ## Feature
 
