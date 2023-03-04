@@ -1,6 +1,6 @@
 {
   "name": "mock-fetch-ts",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "overrides the native fetch to simulate the background interface",
   "main": "./dist/index.js",
   "scripts": {

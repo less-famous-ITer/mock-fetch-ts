@@ -9,7 +9,9 @@ exports.fetch = fetch_1.default;
 const mock_1 = __importDefault(require("./mock"));
 exports.Mock = mock_1.default;
 (0, mock_1.default)('https://www.baidu.com/12/:id', 'get', req => {
-    console.log(req);
+    console.log(req.url);
+    console.log(req.method);
+    console.log(req.cache);
     return {
         headers: {
             ACC: 'accccc'

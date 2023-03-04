@@ -3,7 +3,9 @@ import Mock from "./mock";
 
 Mock('https://www.baidu.com/12/:id', 'get', req => {
 
-    console.log(req)
+    console.log(req.url)
+    console.log(req.method)
+    console.log(req.cache)
 
     return {
         headers: {
