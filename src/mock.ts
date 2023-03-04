@@ -1,10 +1,10 @@
-import center, { MockRequest } from './store/center';
+import center, { MockRequest, MockResponse } from './store/center';
 
 export default function Mock(
 
     url: string,
     method: string,
-    callback: (req: MockRequest) => object) {
+    callback: (req: MockRequest) => MockResponse) {
 
     // 订阅事件
     // 注册回调

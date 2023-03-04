@@ -29,6 +29,16 @@ export interface MockRequest {
     integrity?: string;
 }
 
+export interface MockResponse {
+    headers?: object,
+    ok?: boolean,
+    status?: number,
+    statusText?: string,
+    type?: string,
+    url?: string,
+    body: object
+}
+
 /**
  * 事件中心类
  * events: Event 事件列表
