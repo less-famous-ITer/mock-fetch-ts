@@ -1,3 +1,4 @@
 import fetch from './fetch';
 import Mock from "./mock";
-export { Mock, fetch };
+import { MockRequest, MockResponse } from "./store/center";
+export { Mock, fetch, MockRequest, MockResponse };

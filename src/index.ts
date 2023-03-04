@@ -1,5 +1,6 @@
 import fetch from './fetch';
 import Mock from "./mock";
+import {MockRequest, MockResponse} from "./store/center";
 
 Mock('https://www.baidu.com/12/:id/:ppp', 'get', (req, params, query) => {
 
@@ -46,4 +47,4 @@ fetch('https://www.baidu.com/12/13/hhh?a=1&b=2', {
     return response.text()
 }).then(result => console.log(result))
 
-export { Mock, fetch }
+export { Mock, fetch, MockRequest, MockResponse }
